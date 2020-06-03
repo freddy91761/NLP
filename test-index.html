@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="">
+                <h1>Tweet Checker:</h1>
+            </div>
+            <div class="">
+                Navigation
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <form class="" onsubmit="return Client.handleSubmit(event)">
+                    <input id="name" type="text" name="input" value="" placeholder="Tweet">
+                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                </form>
+            <section>
+
+            <section>
+                <h3><strong>Analysis Results:</strong></h3>
+                <div id="analysis">
+                    <div> Polarity: <span id="polarity"></span>
+                    </div>
+                    <div>Subjectivity:<span id="subjectivity"></span></div>
+                   <div>Text:<span id="text"></span></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>This is a footer</p>
+        </footer>
+    </body>
+</html>

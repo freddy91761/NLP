@@ -5,21 +5,29 @@ const express = require('express');
 const mockAPIResponse = require('./mockAPI.js');
 const app = express();
 const aylien = require('aylien_textapi');
+const app = express();
 
 
+const baseURL = "https://api.aylien.com/api/v1/sentiment/?"
 
 const textAPI = new aylien({
     application_id: process.env.API_ID,
     application_key: process.env.API_KEY
 });
 
-app.use(express.static('dist'))
+//Middleware ######################################
 
-console.log(__dirname)
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+//Cors ######################################
+app.use(cors());
+
+app.use(express.static('dist'))
 
 app.get('/', function (req, res) {
     // res.sendFile('dist/index.html')
-    res.sendFile(path.resolve('dist/index.html'))
+    res.sendFile(path.resolve('src/client/vies/index.html'))
 })
 
 // designates what port the app will listen to for incoming requests
@@ -27,15 +35,32 @@ app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
 })
 
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
-})
+app.post("/api/", function (req, res){
+  Console.log("Calling API");
 
-textAPI.sentiment({
-    'text': 'John is a very good football player!'
-  }, function(error, response) {
-    if (error === null) {
+  const userText = req.body.text;
+
+  async function apiFetch(a){
+    await textAPI.sentiment({
+      text: a,
+    },
+  function (error, response){
+    if(error === null){
+      res.json(response);
       console.log(response);
     }
-  });
+    else{
+      console.log(error, "An error has occured")
+      }
+     }
+    );
+  }
+  apiFetch(userText)
+});
+
+
+
+//   app.get('/test', function (req, res) {
+//     res.send(mockAPIResponse)
+// })
 
