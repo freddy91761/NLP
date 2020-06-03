@@ -3,10 +3,11 @@ dotenv.config();
 const path = require('path');
 const express = require('express');
 const mockAPIResponse = require('./mockAPI.js');
-const app = express();
 const aylien = require('aylien_textapi');
-const app = express();
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
+const app = express();
 
 const baseURL = "https://api.aylien.com/api/v1/sentiment/?"
 
@@ -58,9 +59,4 @@ app.post("/api/", function (req, res){
   apiFetch(userText)
 });
 
-
-
-//   app.get('/test', function (req, res) {
-//     res.send(mockAPIResponse)
-// })
 
