@@ -16,14 +16,16 @@ const textAPI = new aylien({
     application_key: process.env.API_KEY
 });
 
-//Middleware ######################################
+//################################ Middleware ######################################
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-//Cors ######################################
+//####################### Cors for cross origin allowance ###########################
 app.use(cors());
 
+
+//######################### Initialize the main project folder ######################
 app.use(express.static('dist'))
 
 app.get('/', function (req, res) {
