@@ -3,7 +3,12 @@ function handleSubmit(event) {
   
     // check what text was put into the form field
     let formText = document.getElementById("name").value;
-  
+
+    if(formtext.length > 0){
+        console.log("Text field is empty")
+    }
+
+
     //Left it for a funny
     Client.textCheck(formText);
     console.log("Congrats, it worked");
