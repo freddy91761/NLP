@@ -1,53 +1,46 @@
 const dotenv = require('dotenv');
 dotenv.config();
-const path = require('path');
-const express = require('express');
-const mockAPIResponse = require('./mockAPI.js');
 const aylien = require('aylien_textapi');
-const bodyParser = require('body-parser');
-const cors = require('cors');
 
-const app = express();
+var path = require('path')
+var express = require('express');
+var app = express();
+const mockAPIResponse = require('./mockAPI.js');
+var cors = require('cors');
+var bodyParser = require('body-parser')
+var requestPost = require('./handleRequest')
 
-const baseURL = "https://api.aylien.com/api/v1/sentiment/?"
 
 const textAPI = new aylien({
     application_id: process.env.API_ID,
     application_key: process.env.API_KEY
 });
 
+app.use(cors())
+// to use json
+app.use(bodyParser.json())
+// to use url encoded values
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
+app.use(express.static('dist'));
 
-//####################### Cors for cross origin allowance ###########################
-app.use(cors());
-//######################### Initialize the main project folder ######################
-app.use(express.static('dist'))
+app.get('/', function(req, res){
+    //res.sendFile('/views/index.html', { root:path.join(__dirname, '../client') });
+    res.sendFile(path.resolve('dist/index.html'));
+    
+});
 
-//################################ Middleware ######################################
-
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-
-
-app.get('/', function (req, res) {
-    // res.sendFile('dist/index.html')
-    res.sendFile(path.resolve('dist/index.html'))
-})
-
-// designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-    console.log('Example app listening on port 8081!')
-})
-
-app.post('/article', requestPost.validateRequest, requestPost.registerPostHandler);
-
-  
 app.get('/test', function (req, res) {
-  res.send(mockAPIResponse)
+    res.send(mockAPIResponse)
 });
 // Post for article analysis
 app.post('/article', requestPost.validateRequest, requestPost.registerPostHandler);
 
 module.exports = app;
+
+
+
 
 
 
