@@ -8,12 +8,12 @@ import './styles/header.scss'
 import './styles/resets.scss'
 
 export {
-    checkForName,
+    urlChecker,
 
     handleSubmit
 }
 
-console.log(checkForName);
+console.log(urlChecker);
 
 alert("IT WORKS")
 console.log("CHANGE!!");
