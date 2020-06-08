@@ -2,47 +2,82 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>NLP App</title>
-        
+        <title>Evaluate a news article or text with Aylient Natural Language Processing</title>
     </head>
+
     <body>
+
         <header>
-            <div class="Header">
-                <h1>Welcome to the Natural Language Processing App</h1>
+            <div class="">
+                Udacity Project
             </div>
-            <div class="navBar">
-                navigation
+            <div class="">
+                Evaluate a News Article with Natural Language Processing
             </div>
         </header>
 
         <main>
+            <h1>Evaluate a news article or text with Aylient Natural Language Processing</h1>
+
+            <p>
+                The Aylien Text Analysis API provides powerful and flexible AI-driven content analysis solutions that bring the power of NLP to the masses. We help developers, data scientists, and marketers understand human-generated textual content at scale.
+            </p>
+
+            <h2>Try it out! Type in a "URL" to see what the Aylient NLP understands from it.</h2>
+    
+
+            <section class="errors">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <div id="error"></div>
+            </section> 
+
+
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
+                    <input id="name" type="url" name="test-url" value=""  placeholder="https://www.news-source/a-news-article...">
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             <section>
 
-            <section>
-                <h2><strong>Form Results:</strong></h2>
-                <div id="Polarity Results">Polarity Results:</div>
-                <div id="Subjectivity Results:">Subjectivity Results:</div>
-                <div id="Polarity Results:">Polarity Results</div>
-            </section>
+            <section class="url-results">
+                    <ul>
+                        <li>
+                            <h3>Text Polarity:</h3>
+                            <p id="polarity"></p>
+                            <h4>Confidence: </h4>
+                            <p id="polarity_confidence"></p>
+                        </li>
+    
+                        <li>
+                            <h3>Text Subjectivity:</h3>
+                            <p id="subjectivity"></p>
+                            <h4>Confidence: </h4>
+                            <p id="subjectivity_confidence"></p>
+                        </li>
+    
+                        <h3>Text Excerpt:</h3>
+                        <p id="excerpt"></p>
+                    </ul>
+                </section>
         </main>
 
         <footer>
-            <p>Made by Wilfredo Perez</p>
+            <p>Aylient Natural Language Processing</p>
         </footer>
+
         <script>
-            // Check that service workers are supported
-            if ('serviceWorker' in navigator) {
+                // Check that service workers are supported
+                if ('serviceWorker' in navigator) {
                 // Use the window load event to keep the page load performant
                 window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('/service-worker.js');
+                    navigator.serviceWorker.register('/service-worker.js').then(registration =>{
+                        console.log('SW registered: ', registration);
+                    });
                 });
-            }
+                }else{
+                console.log("Service Working not working");
+                    }
         </script>
+
     </body>
 </html>
