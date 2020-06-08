@@ -1,14 +1,8 @@
-function handleSubmit(event) {
-    event.preventDefault();
-  
-    // check what text was put into the form field
-    const inputURL = document.querySelector('inputURL').value
-
     function handleSubmit(event) {
       event.preventDefault()
   
       //Get input from form
-      var url = document.querySelectorAll('input[name=test-url]')
+      var url = document.querySelectorAll('input[name=inputURL]')
   
       //check that input is a valid url
       if(Client.validURL(JSON.parse(JSON.stringify(url[0].value))))
@@ -44,7 +38,7 @@ function handleSubmit(event) {
           
       } 
   }
-}
+
   
   export { handleSubmit }
 
