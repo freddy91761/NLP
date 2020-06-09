@@ -2,12 +2,12 @@
       event.preventDefault()
         console.log('Running URL Check');
       //Get input from form
-      //var url = document.querySelectorAll('input[name=inputURL]')//made a chage
-      var url = document.querySelectorAll('inputURL').value
+      var url = document.querySelectorAll('input[name=inputURL]')
+      
         console.log(url);//for testing - remove after test
-
+  
       //check that input is a valid url
-      if(Client.urlChecker(JSON.parse(JSON.stringify(url))))
+      if(Client.urlChecker(JSON.parse(JSON.stringify(url[0].value))))
       {
           console.log("::: Form Submitted :::")
           

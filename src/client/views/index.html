@@ -13,21 +13,11 @@
         </header>
 
         <main>
-            <h1>Evaluate a news article or text with Aylient Natural Language Processing</h1>
-
-            <h2>Try it out! Type in a "URL" to see what the Aylient NLP understands from it.</h2>
-    
-
-            <section class="errors">
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                    <div id="error"></div>
-            </section> 
-
-
             <section>
+
                 <form class="" onsubmit="return Client.handleSubmit(event)">
                     <!-- textbox -->
-                    <input id="name" type="url" name="inputURL" value=""  placeholder="https://www.news-source/a-news-article...">
+                    <input id="name" type="url" name="inputURL" value="">
                     <!-- button -->
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
@@ -38,6 +28,7 @@
                         <li>
                             <h3>Text Polarity:</h3>
                             <p id="polarity"></p>
+
                             <h4>Confidence: </h4>
                             <p id="polarity_confidence"></p>
                         </li>
@@ -45,6 +36,7 @@
                         <li>
                             <h3>Text Subjectivity:</h3>
                             <p id="subjectivity"></p>
+
                             <h4>Confidence: </h4>
                             <p id="subjectivity_confidence"></p>
                         </li>
@@ -56,7 +48,7 @@
         </main>
 
         <footer>
-            <p>Aylient Natural Language Processing</p>
+            <p>Natural Language Processing</p>
         </footer>
 
         <script>
