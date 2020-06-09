@@ -28,7 +28,6 @@ app.use(express.static('dist'));
 app.get('/', function(req, res){
     //res.sendFile('/views/index.html', { root:path.join(__dirname, '../client') });
     res.sendFile(path.resolve('dist/index.html'));
-    
 });
 
 app.get('/test', function (req, res) {

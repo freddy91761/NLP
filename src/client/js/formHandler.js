@@ -2,10 +2,11 @@
       event.preventDefault()
   
       //Get input from form
-      var url = document.querySelectorAll('input[name=inputURL]')
-  
+      //var url = document.querySelectorAll('input[name=inputURL]')//made a chage
+      var url = document.querySelectorAll('inputURL')
+
       //check that input is a valid url
-      if(Client.validURL(JSON.parse(JSON.stringify(url[0].value))))
+      if(Client.urlChecker(JSON.parse(JSON.stringify(url[0].value))))
       {
           console.log("::: Form Submitted :::")
           
