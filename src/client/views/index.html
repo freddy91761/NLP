@@ -8,20 +8,14 @@
     <body>
 
         <header>
-            <div class="">
-                Udacity Project
-            </div>
-            <div class="">
-                Evaluate a News Article with Natural Language Processing
-            </div>
+            
+            
+                <h1>Natural Language Processing App</h1>
+            
         </header>
 
         <main>
             <h1>Evaluate a news article or text with Aylient Natural Language Processing</h1>
-
-            <p>
-                The Aylien Text Analysis API provides powerful and flexible AI-driven content analysis solutions that bring the power of NLP to the masses. We help developers, data scientists, and marketers understand human-generated textual content at scale.
-            </p>
 
             <h2>Try it out! Type in a "URL" to see what the Aylient NLP understands from it.</h2>
     
@@ -34,7 +28,9 @@
 
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="url" name="test-url" value=""  placeholder="https://www.news-source/a-news-article...">
+                    <!-- textbox -->
+                    <input id="name" type="url" name="inputURL" value=""  placeholder="https://www.news-source/a-news-article...">
+                    <!-- button -->
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             <section>
